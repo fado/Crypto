@@ -1,5 +1,10 @@
+import sys
 import unittest
 import algorithms
+try:
+    from testfixtures import ShouldRaise
+except ImportError as error:
+    sys.exit("ERROR: Missing dependency: {0}".format(error))
 
 
 class AlgorithmsTest(unittest.TestCase):
@@ -9,8 +14,6 @@ class AlgorithmsTest(unittest.TestCase):
     def test_fix_negative_inverse_modulo(self):
         self.assertEqual(algorithms.extended_euclidean(19, 7), 11)
 
-    # Based on http://goo.gl/0DD63h
     def test_not_relatively_prime_throws_exception(self):
-        with self.assertRaises(ValueError) as context:
+        with ShouldRaise(ValueError('Inputs are not relatively prime.')):
             algorithms.extended_euclidean(12, 24)
-        self.assertTrue("Inputs are not relatively prime." in context.exception)
