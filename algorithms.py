@@ -17,7 +17,7 @@ def extended_euclidean(modulus, integer):
     r, old_r = integer, modulus
 
     while r != 1:
-        quotient = old_r / r
+        quotient = old_r // r
         old_r, r = r, old_r - quotient * r
         old_t, t = t, old_t - quotient * t
 
