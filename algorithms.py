@@ -42,7 +42,7 @@ def eulers_totient(integer):
 
     totient = 0
 
-    for i in range(0, integer - 1):
+    for i in range(0, integer):
         if gcd(i, integer) == 1:
             totient += 1
 
