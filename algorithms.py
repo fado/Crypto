@@ -25,3 +25,25 @@ def extended_euclidean(modulus, integer):
         return modulus + t
     else:
         return t
+
+
+def eulers_totient(integer):
+    """ Naieve (read: simple and inefficient) algorithm to compute Euler's totient
+    for a given integer.  Returns the number of positive integers less than integer
+    and relatively prime to integer.
+
+    :param integer: The integer for which we wish to compute Euler's totient.
+    :return: Euler's totient for the passed-in integer.
+    """
+    # TO-DO: Test for primality.
+
+    if integer <= 0:
+        return 0
+
+    totient = 0
+
+    for i in range(0, integer - 1):
+        if gcd(i, integer) == 1:
+            totient += 1
+
+    return totient
