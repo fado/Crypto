@@ -17,3 +17,6 @@ class AlgorithmsTest(unittest.TestCase):
     def test_not_relatively_prime_throws_exception(self):
         with ShouldRaise(ValueError('Inputs are not relatively prime.')):
             algorithms.extended_euclidean(12, 24)
+
+    def test_eulers_totient(self):
+        self.assertEqual(algorithms.eulers_totient(5), 4)
