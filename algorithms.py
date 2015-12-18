@@ -1,7 +1,7 @@
 from fractions import gcd
 
 
-def extended_euclidean(modulus, integer):
+def extended_euclidean(integer, modulus):
     """ Finds the inverse modulo of b, mod a.
 
     Based on the pseudocode taken from
