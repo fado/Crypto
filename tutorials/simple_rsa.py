@@ -2,7 +2,9 @@ import argparse
 import fractions
 import logging
 import random
+
 from algorithms import extended_euclidean
+from tutorials.keys import RSAPublicKey, RSAPrivateKey
 
 log = logging.getLogger()
 
@@ -57,22 +59,6 @@ def encrypt(message, pub_k):
 
     log.debug("ENCRYPT: Public exponent: %s, public n: %s, message: %s" % (pub_k.pub_e, pub_k.n, message))
     return int(pow(message, pub_k.pub_e) % pub_k.n)
-
-
-class RSAPublicKey:
-    """ RSA public key. """
-
-    def __init__(self, n, pub_e):
-        self.n = n
-        self.pub_e = pub_e
-
-
-class RSAPrivateKey:
-    """ RSA private key. """
-
-    def __init__(self, n, priv_e):
-        self.n = n
-        self.priv_e = priv_e
 
 
 def init_logging():
