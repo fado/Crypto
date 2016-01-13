@@ -47,3 +47,15 @@ def eulers_totient(integer):
             totient += 1
 
     return totient
+
+
+def r_div_mod(x, y):
+    """ Return the "r-division" modulo of x and y.
+
+    Computes the real quotient of x and y (Qr), rounds it the closest integer (Qz), then
+    computes the remainder as dividend - divisor * Qz.
+    :param x: Dividend.
+    :param y: Divisor.
+    :return: "r-division" modulo of x and y.
+    """
+    return x-(round(float(x)/float(y))*y)
