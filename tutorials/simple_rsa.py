@@ -46,7 +46,7 @@ def decrypt(message, priv_k):
     """
 
     log.debug("DECRYPT: Private exponent: %s, private n: %s, message: %s" % (priv_k.priv_e, priv_k.n, message))
-    return int(pow(message, priv_k.priv_e) % priv_k.n)
+    return int((message ** priv_k.priv_e) % priv_k.n)
 
 
 def encrypt(message, pub_k):
@@ -58,7 +58,7 @@ def encrypt(message, pub_k):
     """
 
     log.debug("ENCRYPT: Public exponent: %s, public n: %s, message: %s" % (pub_k.pub_e, pub_k.n, message))
-    return int(pow(message, pub_k.pub_e) % pub_k.n)
+    return int((message ** pub_k.pub_e) % pub_k.n)
 
 
 def init_logging():

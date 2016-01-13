@@ -45,7 +45,7 @@ def encrypt(message, pub_k):
     r = random.randint(1, pub_k.n)
 
     # Encrypt with g^m * r^n % n^2
-    return pow(pub_k.g, message) * pow(r, pub_k.n) % pow(pub_k.n, 2)
+    return ((pub_k.g ** message) * (r ** pub_k.n)) % (pub_k.n ** 2)
 
 
 def decrypt(message, priv_k, pub_k):
@@ -58,7 +58,7 @@ def decrypt(message, priv_k, pub_k):
     """
 
     # Calculate u as m^lmda % n^2
-    u = pow(message, priv_k.lmda) % pow(pub_k.n, 2)
+    u = (message ** priv_k.lmda) % (pub_k.n ** 2)
 
     # Calculate L
     l = (u - 1) / pub_k.n
