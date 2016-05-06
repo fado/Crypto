@@ -46,6 +46,12 @@ if __name__ == "__main__":
     security_parameter = 8
     key = generate_key(security_parameter)
 
-    ciphertext_1 = encrypt_bit(security_parameter, key, 0)
-    plaintext_1 = decrypt(ciphertext_1, key)
+    ciphertext_0 = encrypt_bit(security_parameter, key, 0)
+    ciphertext_1 = encrypt_bit(security_parameter, key, 1)
+
+    plaintext_1 = decrypt(ciphertext_0 + ciphertext_1, key)
+    plaintext_2 = decrypt(ciphertext_0 + ciphertext_0, key)
+
+    print(plaintext_1)
+    print(plaintext_2)
 
