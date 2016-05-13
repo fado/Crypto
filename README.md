@@ -1,2 +1,3 @@
-# python_crypto
-Python implementation of some common algorithms used in crypto.
+# crypto
+Collection of crypto stuff. Mostly just test implementations and playing
+around.
